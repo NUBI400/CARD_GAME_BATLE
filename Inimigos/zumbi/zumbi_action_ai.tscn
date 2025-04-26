@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://omojpafuhcum"]
+
+[ext_resource type="Script" uid="uid://brmg653fah6n6" path="res://cenes/Inimigos/zumbi/EnemyActionPicker.gd" id="1_rsnrv"]
+[ext_resource type="Script" uid="uid://bcw6h8ksk3hlx" path="res://Inimigos/zumbi/AttackAction.gd" id="2_w8pay"]
+[ext_resource type="Script" uid="uid://dja3os7nbpdm6" path="res://Inimigos/zumbi/BlockAction.gd" id="3_q2f3c"]
+[ext_resource type="Script" uid="uid://bpt1k7odhfraf" path="res://Inimigos/zumbi/MegaBlockAction.gd" id="4_oybxr"]
+
+[node name="ZumbiEnemyAI" type="Node"]
+script = ExtResource("1_rsnrv")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_w8pay")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_q2f3c")
+type = 1
+chance_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("4_oybxr")

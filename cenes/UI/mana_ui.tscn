@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4mymsc8d3ujc"]
+
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://assets/ROUBADOS/pixel_rpg.ttf" id="1_e41o8"]
+[ext_resource type="Theme" uid="uid://do0qverrf24ba" path="res://assets/tema.tres" id="1_magki"]
+[ext_resource type="Script" uid="uid://7b1bsdtnarvf" path="res://cenes/UI/mana_ui.gd" id="1_xy70s"]
+
+[node name="ManaUI" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme = ExtResource("1_magki")
+script = ExtResource("1_xy70s")
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_magki")
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_e41o8")
+theme_override_font_sizes/font_size = 30
+text = "2/2"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfm18n4fgwqtl"]
+
+[ext_resource type="Script" uid="uid://d00cpr8uukhsu" path="res://cenes/Player/player.gd" id="1_1wtte"]
+[ext_resource type="Texture2D" uid="uid://bgfa463rdke1s" path="res://assets/pngegg.png" id="1_pi5bo"]
+[ext_resource type="PackedScene" uid="uid://vk8n3q0huspf" path="res://cenes/UI/stats_ui.tscn" id="2_slt86"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_1wtte")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(40, 0)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_pi5bo")
+
+[node name="StatsUI" parent="." instance=ExtResource("2_slt86")]
+offset_left = -159.0
+offset_top = -237.0
+offset_right = 141.0
+offset_bottom = -157.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true

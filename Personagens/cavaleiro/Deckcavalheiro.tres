@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://cr8swiek8yspd"]
+
+[ext_resource type="Script" uid="uid://brlarla12csar" path="res://custom_resorces/pilha_cartas.gd" id="1_lx2qr"]
+[ext_resource type="Script" uid="uid://cap4tg7at5h6q" path="res://custom_resorces/card.gd" id="1_oxnkf"]
+[ext_resource type="Resource" uid="uid://ulcgsu06t6ic" path="res://Personagens/cavaleiro/cartas/Bainha_protetiva.tres" id="1_xndt8"]
+[ext_resource type="Resource" uid="uid://i2xg3f2joawo" path="res://Personagens/cavaleiro/cartas/Corte_horizontal.tres" id="2_xydb8"]
+[ext_resource type="Resource" uid="uid://6hf21rox4a0a" path="res://Personagens/cavaleiro/cartas/Corte_TRASCENDENTAL.tres" id="3_cxt3j"]
+
+[resource]
+script = ExtResource("1_lx2qr")
+cards = Array[ExtResource("1_oxnkf")]([ExtResource("1_xndt8"), ExtResource("1_xndt8"), ExtResource("1_xndt8"), ExtResource("1_xndt8"), ExtResource("2_xydb8"), ExtResource("2_xydb8"), ExtResource("2_xydb8"), ExtResource("2_xydb8"), ExtResource("3_cxt3j"), ExtResource("3_cxt3j")])

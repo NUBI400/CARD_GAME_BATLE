@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ulcgsu06t6ic"]
+
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://assets/ROUBADOS/tile_0102.png" id="1_7ccpg"]
+[ext_resource type="Script" uid="uid://biiwo5wvyjyb8" path="res://Personagens/cavaleiro/cartas/Bainha_protetiva.gd" id="1_ycqfo"]
+
+[resource]
+script = ExtResource("1_ycqfo")
+id = "Bainha_protetiva"
+type = 1
+target = 0
+cost = 1
+icon = ExtResource("1_7ccpg")
+tooltip_text = "[center]Gain [color=\"0044ff\"]5[/color] block.[/center]"

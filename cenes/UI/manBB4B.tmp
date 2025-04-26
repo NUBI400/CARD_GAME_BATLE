@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4mymsc8d3ujc"]
+
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://assets/ROUBADOS/pixel_rpg.ttf" id="1_e41o8"]
+[ext_resource type="Script" path="res://cenes/UI/mana_ui.gd" id="1_xy70s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4pqf"]
+bg_color = Color(0.0320907, 2.05759e-06, 0.0320902, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.196078, 1, 1)
+border_blend = true
+
+[node name="ManaUI" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h4pqf")
+script = ExtResource("1_xy70s")
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.728822, 0.728822, 0.728822, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_e41o8")
+theme_override_font_sizes/font_size = 30
+text = "2/2"
+horizontal_alignment = 1
+vertical_alignment = 1

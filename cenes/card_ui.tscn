@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://cw8v4vlwdlwbe"]
+
+[ext_resource type="Texture2D" uid="uid://dwat0ep3iakqh" path="res://assets/cartinha.png" id="1_4hll0"]
+[ext_resource type="Script" uid="uid://oehtpkosmufi" path="res://scr/cartas/card_ui.gd" id="1_bfuye"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://assets/ROUBADOS/pixel_rpg.ttf" id="3_jcxtw"]
+[ext_resource type="Script" uid="uid://bpcssvyemk8vr" path="res://scr/cartas/CardStateMachine.gd" id="3_sdmko"]
+[ext_resource type="Texture2D" uid="uid://c6rme2o6dyaoj" path="res://assets/ROUBADOS/tile_0104.png" id="4_53wmn"]
+[ext_resource type="Script" uid="uid://4jf06up67poq" path="res://scr/cartas/card_state/CardBaseState.gd" id="4_tv7gg"]
+[ext_resource type="Script" uid="uid://dkpj6f5rdirh5" path="res://scr/cartas/card_state/CardClickedState.gd" id="5_fa2rv"]
+[ext_resource type="Script" uid="uid://1ee50fudwrj0" path="res://scr/cartas/card_state/CardDraggingState.gd" id="6_l11hn"]
+[ext_resource type="Script" uid="uid://bexymg1yy6nqs" path="res://scr/cartas/card_state/CardReleasedState.gd" id="7_ndxi7"]
+[ext_resource type="Script" uid="uid://b4prtp0w6pmkf" path="res://scr/cartas/card_state/CardSelectState.gd" id="8_kd6d8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5yc7"]
+size = Vector2(140, 200)
+
+[node name="Card_UI" type="Control"]
+custom_minimum_size = Vector2(140, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1140.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfuye")
+
+[node name="Fundo" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(140, 200)
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 200.0
+mouse_filter = 2
+texture = ExtResource("1_4hll0")
+expand_mode = 1
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 111.0
+offset_right = 26.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jcxtw")
+theme_override_font_sizes/font_size = 30
+text = "2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 28.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_53wmn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+position = Vector2(70, 100)
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+shape = SubResource("RectangleShape2D_e5yc7")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_sdmko")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_tv7gg")
+
+[node name="CardSelectState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_kd6d8")
+state = 4
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_ndxi7")
+state = 3
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_fa2rv")
+state = 1
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_l11hn")
+state = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

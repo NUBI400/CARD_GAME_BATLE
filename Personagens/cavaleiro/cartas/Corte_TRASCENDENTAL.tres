@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://6hf21rox4a0a"]
+
+[ext_resource type="Script" uid="uid://cap4tg7at5h6q" path="res://custom_resorces/card.gd" id="1_07ysj"]
+[ext_resource type="Texture2D" uid="uid://c1gvqgvgs3xc8" path="res://assets/ROUBADOS/tile_0131.png" id="1_wmct1"]
+
+[resource]
+script = ExtResource("1_07ysj")
+id = "Corte_TRASCENDENTAL"
+type = 0
+target = 1
+cost = 99
+icon = ExtResource("1_wmct1")
+tooltip_text = "[center]Deal [color=\"ff0000\"]9999[/color] damage.[/center]"

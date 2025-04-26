@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://44smlawfxire"]
+
+[ext_resource type="Texture2D" uid="uid://d4ga1yui0l0aa" path="res://assets/fadaw.png" id="1_3fq01"]
+[ext_resource type="PackedScene" uid="uid://omojpafuhcum" path="res://Inimigos/zumbi/zumbi_action_ai.tscn" id="1_hwqlq"]
+[ext_resource type="Script" uid="uid://ck7n0j2aunmeg" path="res://custom_resorces/enemy_stats.gd" id="1_jrpni"]
+
+[resource]
+script = ExtResource("1_jrpni")
+ai = ExtResource("1_hwqlq")
+max_health = 10
+art = ExtResource("1_3fq01")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://c7fplqbsfyrg"]
+
+[ext_resource type="Texture2D" uid="uid://bgfa463rdke1s" path="res://assets/pngegg.png" id="1_0ndtc"]
+[ext_resource type="Script" uid="uid://b3eru46tc20h7" path="res://custom_resorces/character_stats.gd" id="1_puvmg"]
+[ext_resource type="Resource" uid="uid://cr8swiek8yspd" path="res://Personagens/cavaleiro/Deckcavalheiro.tres" id="2_wn3q7"]
+
+[resource]
+script = ExtResource("1_puvmg")
+starting_deck = ExtResource("2_wn3q7")
+cards_per_turn = 4
+max_mana = 3
+max_health = 35
+art = ExtResource("1_0ndtc")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://j30das6f0gms"]
+
+[ext_resource type="Script" uid="uid://6mcref8alqpg" path="res://cenes/UI/tooltip.gd" id="1_uxglk"]
+[ext_resource type="Texture2D" uid="uid://cqcal03735mv8" path="res://assets/ROUBADOS/tile_0118.png" id="1_wbmcp"]
+[ext_resource type="Theme" uid="uid://do0qverrf24ba" path="res://assets/tema.tres" id="1_ypw8u"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://assets/ROUBADOS/pixel_rpg.ttf" id="3_xsh3g"]
+
+[node name="Tooltip" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_right = 220.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme = ExtResource("1_ypw8u")
+script = ExtResource("1_uxglk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TooltipIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+texture = ExtResource("1_wbmcp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TooltipText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("3_xsh3g")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "tooltip description
+tooltip description
+"

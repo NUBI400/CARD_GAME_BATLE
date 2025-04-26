@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://qls3hrmudkaw"]
+
+[ext_resource type="Script" uid="uid://bgai6novxruyq" path="res://cenes/dice/die.gd" id="1_s1lur"]
+[ext_resource type="PackedScene" uid="uid://byj2vmo5yq2h5" path="res://assets/Dice/dice (1).glb" id="2_wkjab"]
+[ext_resource type="PackedScene" uid="uid://8cdnsguxhre4" path="res://cenes/dice/die_raycast.tscn" id="3_q6fh3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugu2j"]
+
+[node name="Die" type="RigidBody3D"]
+gravity_scale = 2.0
+freeze = true
+script = ExtResource("1_s1lur")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_wkjab")]
+transform = Transform3D(-1.18, 1.03159e-07, 0, -1.03159e-07, -1.18, 0, 0, 0, 1.18, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ugu2j")
+
+[node name="Raycasts" type="Node3D" parent="."]
+
+[node name="DieRaycast1" parent="Raycasts" instance=ExtResource("3_q6fh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.500804, 0)
+opposite_side = 6
+
+[node name="DieRaycast2" parent="Raycasts" instance=ExtResource("3_q6fh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.503768, 0, 0)
+target_position = Vector3(-0.1, 0, 0)
+opposite_side = 5
+
+[node name="DieRaycast3" parent="Raycasts" instance=ExtResource("3_q6fh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+target_position = Vector3(0, 0, -0.1)
+opposite_side = 4
+
+[node name="DieRaycast4" parent="Raycasts" instance=ExtResource("3_q6fh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+target_position = Vector3(0, 0, 0.1)
+opposite_side = 3
+
+[node name="DieRaycast5" parent="Raycasts" instance=ExtResource("3_q6fh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(0.1, 0, 0)
+opposite_side = 2
+
+[node name="DieRaycast6" parent="Raycasts" instance=ExtResource("3_q6fh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0.1, 0)
+opposite_side = 1
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

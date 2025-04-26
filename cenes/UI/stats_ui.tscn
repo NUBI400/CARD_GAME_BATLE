@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://vk8n3q0huspf"]
+
+[ext_resource type="Script" uid="uid://derfnykwgit0h" path="res://cenes/UI/stats_ui.gd" id="1_icppe"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://assets/ROUBADOS/tile_0102.png" id="1_ulthj"]
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://assets/ROUBADOS/pixel_rpg.ttf" id="2_3ljf5"]
+[ext_resource type="Texture2D" uid="uid://d0edy7thj8ce6" path="res://assets/ROUBADOS/heart.png" id="3_jrgkv"]
+
+[node name="StatsUI" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 80.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("1_icppe")
+
+[node name="Block" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BlockImage" type="TextureRect" parent="Block"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("1_ulthj")
+
+[node name="BlockLabel" type="Label" parent="Block"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_3ljf5")
+theme_override_font_sizes/font_size = 40
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HealthImage" type="TextureRect" parent="Health"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("3_jrgkv")
+
+[node name="HealthLabel" type="Label" parent="Health"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_3ljf5")
+theme_override_font_sizes/font_size = 40
+text = "4
+"
+horizontal_alignment = 1
+vertical_alignment = 1

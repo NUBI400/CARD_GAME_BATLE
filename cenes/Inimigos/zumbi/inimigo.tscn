@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://biphbnyky2t85"]
+
+[ext_resource type="Script" uid="uid://cd5re75ykfxch" path="res://cenes/Inimigos/zumbi/inimigo.gd" id="1_kxdu1"]
+[ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://assets/ROUBADOS/arrow.png" id="2_jhek4"]
+[ext_resource type="Texture2D" uid="uid://d4ga1yui0l0aa" path="res://assets/fadaw.png" id="2_tqrp2"]
+[ext_resource type="PackedScene" uid="uid://vk8n3q0huspf" path="res://cenes/UI/stats_ui.tscn" id="3_ih4ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6cfn"]
+size = Vector2(193, 295)
+
+[node name="Enemy" type="Area2D" groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_kxdu1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s6cfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_tqrp2")
+
+[node name="arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -182)
+rotation = 3.14159
+scale = Vector2(6, 6)
+texture = ExtResource("2_jhek4")
+
+[node name="StatsUI" parent="." instance=ExtResource("3_ih4ud")]
+offset_top = 142.0
+offset_bottom = 222.0
+mouse_filter = 2

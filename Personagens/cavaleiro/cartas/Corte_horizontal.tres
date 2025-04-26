@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://i2xg3f2joawo"]
+
+[ext_resource type="Script" uid="uid://cvigogqjkxiaw" path="res://Personagens/cavaleiro/cartas/Corte_horizontal.gd" id="1_wibo1"]
+[ext_resource type="Texture2D" uid="uid://c6rme2o6dyaoj" path="res://assets/ROUBADOS/tile_0104.png" id="1_xjiur"]
+
+[resource]
+script = ExtResource("1_wibo1")
+id = "Corte_horizontal"
+type = 0
+target = 1
+cost = 1
+icon = ExtResource("1_xjiur")
+tooltip_text = "[center]Deal [color=\"ff0000\"]6[/color] damage.[/center]"

@@ -1,0 +1,108 @@
+[gd_scene load_steps=18 format=3 uid="uid://cg6ogusgyu6rq"]
+
+[ext_resource type="Script" uid="uid://dlhxqsr4xwyrv" path="res://cenes/Battle/Battle.gd" id="1_2y0t8"]
+[ext_resource type="Texture2D" uid="uid://bejvlgucuqdaa" path="res://assets/test.jpg" id="2_5dh6p"]
+[ext_resource type="PackedScene" uid="uid://biphbnyky2t85" path="res://cenes/Inimigos/zumbi/inimigo.tscn" id="3_5l8il"]
+[ext_resource type="Script" uid="uid://bn2osig80b0x8" path="res://cenes/Inimigos/EnemyHandler.gd" id="4_p1x7a"]
+[ext_resource type="Resource" uid="uid://44smlawfxire" path="res://Inimigos/zumbi/zumbi_enemi.tres" id="5_0tjap"]
+[ext_resource type="PackedScene" uid="uid://cfm18n4fgwqtl" path="res://cenes/Player/player.tscn" id="5_dk72a"]
+[ext_resource type="Resource" uid="uid://c7fplqbsfyrg" path="res://Personagens/cavaleiro/cavaleiro.tres" id="6_6bgwa"]
+[ext_resource type="Script" uid="uid://7vr8swev46ha" path="res://cenes/Player/PlayerHandler.gd" id="7_3b2tq"]
+[ext_resource type="Script" uid="uid://b043qqjy4rap" path="res://cenes/UI/BattleUI.gd" id="7_fc7v0"]
+[ext_resource type="Script" uid="uid://dgkssbhbs5koi" path="res://cenes/UI/Hand.gd" id="8_06vpl"]
+[ext_resource type="PackedScene" uid="uid://b4mymsc8d3ujc" path="res://cenes/UI/mana_ui.tscn" id="12_a2j6k"]
+[ext_resource type="Theme" uid="uid://do0qverrf24ba" path="res://assets/tema.tres" id="12_ofw68"]
+[ext_resource type="PackedScene" uid="uid://j30das6f0gms" path="res://cenes/UI/tooltip.tscn" id="13_vws2a"]
+[ext_resource type="Texture2D" uid="uid://bhs42fu4604bl" path="res://icon.svg" id="14_xskbv"]
+[ext_resource type="Script" uid="uid://cjfn4d7fdt8q8" path="res://cenes/dice/imagem_dados.gd" id="15_g4f2y"]
+[ext_resource type="PackedScene" uid="uid://dnk7s005eyspq" path="res://cenes/dice/cena_3dDice.tscn" id="16_eya3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbu1f"]
+size = Vector2(192, 297)
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_2y0t8")
+char_stats = ExtResource("6_6bgwa")
+metadata/_edit_lock_ = true
+
+[node name="Test" type="Sprite2D" parent="."]
+position = Vector2(632, 362)
+scale = Vector2(4.4, 4.4)
+texture = ExtResource("2_5dh6p")
+metadata/_edit_lock_ = true
+
+[node name="CardDropArea" type="Area2D" parent="." groups=["CardDropArea"]]
+position = Vector2(682, 243)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_fbu1f")
+debug_color = Color(0, 0.6, 0.701961, 0.290196)
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_p1x7a")
+
+[node name="zumbiEnemy" parent="EnemyHandler" instance=ExtResource("3_5l8il")]
+position = Vector2(681, 244)
+stats = ExtResource("5_0tjap")
+
+[node name="Player" parent="." instance=ExtResource("5_dk72a")]
+position = Vector2(117, 543)
+stats = ExtResource("6_6bgwa")
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("7_3b2tq")
+hand = NodePath("../BattleUI/Hand")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+script = ExtResource("7_fc7v0")
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+offset_left = 348.0
+offset_top = 550.0
+offset_right = 948.0
+offset_bottom = 750.0
+mouse_filter = 2
+alignment = 1
+script = ExtResource("8_06vpl")
+
+[node name="ManaUI" parent="BattleUI" instance=ExtResource("12_a2j6k")]
+offset_left = 1120.0
+offset_top = -134.0
+offset_right = 1220.0
+offset_bottom = -34.0
+char_stats = ExtResource("6_6bgwa")
+
+[node name="Tooltip" parent="BattleUI" instance=ExtResource("13_vws2a")]
+offset_top = 37.0
+offset_bottom = 181.0
+
+[node name="EndTurnButton" type="Button" parent="BattleUI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -201.0
+offset_right = -40.0
+offset_bottom = -151.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("12_ofw68")
+text = "End Turn"
+
+[node name="imagem_dados" type="Sprite2D" parent="."]
+texture = ExtResource("14_xskbv")
+centered = false
+script = ExtResource("15_g4f2y")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="dice" parent="SubViewport" instance=ExtResource("16_eya3u")]
+
+[editable path="SubViewport/dice"]

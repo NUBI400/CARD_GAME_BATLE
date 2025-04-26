@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://xjonm71ssegy"]
+
+[ext_resource type="Texture2D" uid="uid://bejvlgucuqdaa" path="res://assets/test.jpg" id="1_dc13i"]
+[ext_resource type="PackedScene" uid="uid://biphbnyky2t85" path="res://cenes/inimigo_test.tscn" id="2_y3426"]
+[ext_resource type="PackedScene" uid="uid://cw8v4vlwdlwbe" path="res://cenes/card.tscn" id="3_2sag1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfrcp"]
+size = Vector2(1280, 416)
+
+[node name="Cenario teste" type="Node2D"]
+
+[node name="Test" type="Sprite2D" parent="."]
+position = Vector2(632, 362)
+scale = Vector2(4.4, 4.4)
+texture = ExtResource("1_dc13i")
+metadata/_edit_lock_ = true
+
+[node name="Inimigo_test" parent="." instance=ExtResource("2_y3426")]
+position = Vector2(1067, 386)
+metadata/_edit_lock_ = true
+
+[node name="UI_hand" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI_hand"]
+offset_left = 268.0
+offset_top = 570.0
+offset_right = 1017.0
+offset_bottom = 830.0
+alignment = 1
+
+[node name="Card" parent="UI_hand/HBoxContainer" instance=ExtResource("3_2sag1")]
+layout_mode = 2
+
+[node name="Card2" parent="UI_hand/HBoxContainer" instance=ExtResource("3_2sag1")]
+layout_mode = 2
+
+[node name="Card3" parent="UI_hand/HBoxContainer" instance=ExtResource("3_2sag1")]
+layout_mode = 2
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(640, 208)
+shape = SubResource("RectangleShape2D_rfrcp")

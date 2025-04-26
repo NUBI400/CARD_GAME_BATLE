@@ -1,0 +1,78 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://do0qverrf24ba"]
+
+[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://assets/ROUBADOS/pixel_rpg.ttf" id="1_4cte5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0u5ir"]
+bg_color = Color(0, 0, 0, 0.501961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.196078, 1, 0.631373)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iylyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukmh3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.458018, 0.630415, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll7f8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.196078, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkrb8"]
+bg_color = Color(0, 0, 0, 0.686275)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.458824, 0.631373, 1, 0.788235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lusbs"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.196078, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxdel"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.196078, 1, 1)
+
+[resource]
+Button/font_sizes/font_size = 22
+Button/fonts/font = ExtResource("1_4cte5")
+Button/styles/disabled = SubResource("StyleBoxFlat_0u5ir")
+Button/styles/focus = SubResource("StyleBoxEmpty_iylyg")
+Button/styles/hover = SubResource("StyleBoxFlat_ukmh3")
+Button/styles/normal = SubResource("StyleBoxFlat_ll7f8")
+Button/styles/pressed = SubResource("StyleBoxFlat_pkrb8")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_4cte5")
+Label/styles/normal = null
+Panel/styles/panel = SubResource("StyleBoxFlat_lusbs")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_xxdel")
+Tree/styles/custom_button = null
+Tree/styles/custom_button_hover = null
+Tree/styles/custom_button_pressed = null

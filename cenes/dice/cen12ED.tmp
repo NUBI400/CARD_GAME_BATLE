@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnk7s005eyspq"]
+
+[ext_resource type="PackedScene" uid="uid://qls3hrmudkaw" path="res://cenes/dice/die.tscn" id="1_l4o6x"]
+
+[sub_resource type="Environment" id="Environment_s0wio"]
+ssao_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f87e8"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghhkf"]
+size = Vector3(8, 10, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wp60y"]
+size = Vector3(0.1, 10, 8)
+
+[node name="cena_3dDice" type="Node3D"]
+
+[node name="Die" parent="." instance=ExtResource("1_l4o6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37739, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s0wio")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_f87e8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 4)
+shape = SubResource("BoxShape3D_ghhkf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -4)
+shape = SubResource("BoxShape3D_ghhkf")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 5, 0)
+shape = SubResource("BoxShape3D_wp60y")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, 0)
+shape = SubResource("BoxShape3D_wp60y")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507352, 0)
+visible = false
+size = Vector3(10, 1, 10)
